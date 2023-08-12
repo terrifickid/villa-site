@@ -13,7 +13,7 @@
         class="flex flex-row items-center justify-between text-regent-900 text-sm lg:justify-start"
       >
         <div class="text-xl inline-flex items-center">
-          <span><img src="/vb.png" class="h-6 md:h-7" /></span>
+          <span><img src="/vb.png" class="h-5 md:h-7" /></span>
         </div>
 
         <button
