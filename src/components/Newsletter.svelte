@@ -113,8 +113,8 @@
         </form>
       </div>
     </div>
-    <div class="grid grid-cols-2 gap-8 mt-6 xl:col-span-3 border-t pt-12">
-      <div class="md:gap-8 md:grid md:grid-cols-2">
+    <div class="grid md:grid-cols-2 gap-8 mt-6 xl:col-span-3 border-t pt-12">
+      <div class="md:gap-8 md:grid lg:grid-cols-2">
         <div>
           <h3 class="text-regent-900 font-medium lg:text-xl text-lg">
             Sitemap
