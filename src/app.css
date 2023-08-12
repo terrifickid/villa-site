@@ -1,0 +1,8 @@
+@import url("https://api.fontshare.com/v2/css?f[]=general-sans@1,2&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.frame {
+  @apply p-5 md:px-6 lg:px-16;
+}
