@@ -105,7 +105,7 @@
               required=""
             /><button
               type="button"
-              class="inline-flex items-center justify-center w-auto lg:px-12 px-6 py-4 text-center text-white duration-200 bg-black font-medium rounded-full text-base focus:outline-none focus:ring-2 hover:text-white focus:ring-regent-900 hover:bg-white hover:ring-bound hover:ring-1 hover:text-black"
+              class="inline-flex items-center justify-center w-auto lg:px-12 px-6 py-4 text-center text-white duration-200 bg-black font-medium rounded-full text-base focus:outline-none hover:bg-white hover:ring-bound hover:ring-1 hover:text-black"
               ><div style="position:relative" />
               Submit<!-- -->
             </button>

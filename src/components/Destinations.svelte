@@ -24,7 +24,7 @@
   </div>
   <div class="mx-auto mt-24 pb-12 lg:pb-32" x-data="" x-tabs="">
     <div
-      class="grid gap-12 grid-cols-2 lg:grid-cols-3 items-center w-full px-8 mx-auto md:px-12 lg:px-16 max-w-7xl"
+      class="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center w-full px-8 mx-auto md:px-12 lg:px-16 max-w-7xl"
     >
       <div>
         <h3>
