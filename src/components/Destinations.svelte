@@ -5,7 +5,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-end">
       <div>
         <span
-          class="text-base items-center inline-flex uppercase tracking-wide font-medium text-regent-600"
+          class="text-base items-center inline-flex uppercase tracking-wide font-medium text-bound"
         >
           Destinations
         </span>

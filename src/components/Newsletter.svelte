@@ -105,7 +105,7 @@
               required=""
             /><button
               type="button"
-              class="inline-flex items-center justify-center w-auto lg:px-12 px-6 py-4 text-center text-white duration-200 bg-black font-medium rounded-full text-base focus:outline-none hover:bg-white hover:ring-bound hover:ring-1 hover:text-black"
+              class="mt-3 sm:mt-0 sm: ml-2 inline-flex items-center justify-center w-auto lg:px-12 px-6 py-4 text-center text-white duration-200 bg-black font-medium rounded-full text-base focus:outline-none hover:bg-white hover:ring-bound hover:ring-1 hover:text-black"
               ><div style="position:relative" />
               Submit<!-- -->
             </button>
@@ -113,139 +113,111 @@
         </form>
       </div>
     </div>
-    <div class="grid md:grid-cols-2 gap-8 mt-6 xl:col-span-3 border-t pt-12">
-      <div class="md:gap-8 md:grid lg:grid-cols-2">
-        <div>
-          <h3 class="text-regent-900 font-medium lg:text-xl text-lg">
-            Sitemap
-          </h3>
-          <ul class="mt-4 space-y-2" role="list">
-            <li>
-              <a
-                class="text-base text-slate-500 inline-flex items-center hover:text-regent-600"
-                href="/"
-              >
-                <span>Destinations</span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-base text-slate-500 inline-flex items-center hover:text-regent-600"
-                href="/"
-              >
-                <span>About us</span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-base text-slate-500 inline-flex items-center hover:text-regent-600"
-                href="/"
-              >
-                <span>Villa Owners</span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-base text-slate-500 inline-flex items-center hover:text-regent-600"
-                href="/"
-              >
-                <span>Blog</span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-base text-slate-500 inline-flex items-center hover:text-regent-600"
-                href="/"
-              >
-                <span>Contact</span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-base text-slate-500 inline-flex items-center hover:text-regent-600"
-                href="/"
-              >
-                <span>Privacy Policy</span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-base text-slate-500 hover:text-regent-600"
-                href="/style-guide">Style Guide</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="mt-12 md:mt-0">
-          <h3 class="text-regent-900 font-medium lg:text-xl text-lg">
-            Recent posts
-          </h3>
-          <ul class="mt-4 space-y-2" role="list">
-            <li>
-              <a class="text-base text-slate-500 hover:text-regent-600" href="#"
-                >Most Luxurious Ranches in Western U.S.A</a
-              >
-            </li>
-            <li>
-              <a
-                class="text-base text-slate-500 hover:text-regent-600"
-                href="#"
-              >
-                Easter in Barbados</a
-              >
-            </li>
-            <li>
-              <a class="text-base text-slate-500 hover:text-regent-600" href="#"
-                >Coachella 2023</a
-              >
-            </li>
-            <li>
-              <a class="text-base text-slate-500 hover:text-regent-600" href="#"
-                >Christmas Holidays in Turks & Caicos</a
-              >
-            </li>
-            <li>
-              <a class="text-base text-slate-500 hover:text-regent-600" href="#"
-                >Spend New Year's Eve in Jamaica!</a
-              >
-            </li>
-          </ul>
-        </div>
+    <div class="grid md:grid-cols-4 gap-8 mt-6 xl:col-span-3 border-t pt-12">
+      <div>
+        <h3 class="text-regent-900 font-medium lg:text-xl text-lg">Sitemap</h3>
+        <ul class="mt-4 space-y-2" role="list">
+          <li>
+            <a
+              class="text-base text-slate-500 inline-flex items-center hover:text-regent-600"
+              href="/"
+            >
+              <span>Destinations</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-base text-slate-500 inline-flex items-center hover:text-regent-600"
+              href="/"
+            >
+              <span>About us</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-base text-slate-500 inline-flex items-center hover:text-regent-600"
+              href="/"
+            >
+              <span>Villa Owners</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-base text-slate-500 inline-flex items-center hover:text-regent-600"
+              href="/"
+            >
+              <span>Blog</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-base text-slate-500 inline-flex items-center hover:text-regent-600"
+              href="/"
+            >
+              <span>Contact</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-base text-slate-500 inline-flex items-center hover:text-regent-600"
+              href="/"
+            >
+              <span>Privacy Policy</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-base text-slate-500 hover:text-regent-600"
+              href="/style-guide">Style Guide</a
+            >
+          </li>
+        </ul>
       </div>
-      <div class="md:gap-8 md:grid lg:grid-cols-2">
-        <div>
-          <h3 class="text-regent-900 font-medium lg:text-xl text-lg">
-            Socials
-          </h3>
-          <ul class="mt-4 space-y-2" role="list">
-            <li>
-              <a
-                class="text-base text-slate-500 hover:text-regent-600"
-                href="https://www.lexingtonthemes.com/license">License</a
-              >
-            </li>
-            <li>
-              <a
-                class="text-base text-slate-500 hover:text-regent-600"
-                href="https://www.lexingtonthemes.com/documentation"
-                >Documentation</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="mt-12 md:mt-0">
-          <h3 class="text-regent-900 font-medium lg:text-xl text-lg">
-            Connect with us
-          </h3>
-          <ul class="mt-4 space-y-2" role="list">
-            <li class="text-base text-slate-500 hover:text-regent-600">
-              Suite 1, Barbados Golf Club, Christ Church
-            </li>
-            <li class="text-base text-slate-500 hover:text-regent-600">
-              LILY@VILLABOUND.COM
-            </li>
-          </ul>
-        </div>
+      <div class="mt-12 md:mt-0 col-span-2">
+        <h3 class="text-regent-900 font-medium lg:text-xl text-lg">
+          Recent posts
+        </h3>
+        <ul class="mt-4 space-y-2" role="list">
+          <li>
+            <a class="text-base text-slate-500 hover:text-regent-600" href="#"
+              >Most Luxurious Ranches in Western U.S.A</a
+            >
+          </li>
+          <li>
+            <a class="text-base text-slate-500 hover:text-regent-600" href="#">
+              Easter in Barbados</a
+            >
+          </li>
+          <li>
+            <a class="text-base text-slate-500 hover:text-regent-600" href="#"
+              >Coachella 2023</a
+            >
+          </li>
+          <li>
+            <a class="text-base text-slate-500 hover:text-regent-600" href="#"
+              >Christmas Holidays in Turks & Caicos</a
+            >
+          </li>
+          <li>
+            <a class="text-base text-slate-500 hover:text-regent-600" href="#"
+              >Spend New Year's Eve in Jamaica!</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="mt-12 md:mt-0">
+        <h3 class="text-regent-900 font-medium lg:text-xl text-lg">
+          Connect with us
+        </h3>
+        <ul class="mt-4 space-y-2" role="list">
+          <li class="text-base text-slate-500 hover:text-regent-600">
+            Suite 1, Barbados Golf Club, Christ Church
+          </li>
+          <li class="text-base text-slate-500 hover:text-regent-600">
+            LILY@VILLABOUND.COM
+          </li>
+        </ul>
       </div>
     </div>
   </div>
