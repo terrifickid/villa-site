@@ -3,11 +3,9 @@
 </script>
 
 <section class="fixed bg-black text-white overflow-hidden w-screen z-50 py-7">
-  <div
-    class="mx-auto flex items-center px-8 md:px-12 lg:px-16 max-w-7xl grid grid-cols-2"
-  >
+  <div class="mx-auto flex items-center grid grid-cols-2 frame">
     <div>
-      <span><img src="/vb.png" class="h-6 md:h-7" /></span>
+      <span><a href="/"><img src="/vb.png" class="h-6 md:h-7" /></a></span>
     </div>
     <div class="text-right">
       <svg
