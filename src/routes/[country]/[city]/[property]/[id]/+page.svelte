@@ -19,15 +19,17 @@
   </div>
 </section>
 
-<div class="frame bg-black py-24">
-  <div
-    class="picture bg-contain bg-no-repeat bg-left bg-black"
-    style="width: 100%; background-image: url({data.picture
-      .large}); height: 50vh;"
-  />
+<div class="bg-black py-24">
+  <div class="frame">
+    <div
+      class="picture bg-contain bg-no-repeat bg-left bg-black"
+      style="width: 100%; background-image: url({data.picture
+        .large}); height: 50vh;"
+    />
+  </div>
 </div>
 <section class="bg-black text-white pb-24">
-  <div class="text-2xl frame">
+  <div class=" frame">
     <div class="grid grid-cols-1 md:grid-cols-3">
       <div class="mb-4">
         <h2 class="text-lg mb-2">Address</h2>
@@ -64,29 +66,31 @@
   </div>
 </section>
 
-<section class="frame bg-bound text-white py-24">
-  <p class="text-3xl pb-12">Property Description</p>
-  <div class="mb-4 text-lg" style="columns: 2; column-gap: 4rem;">
-    <p>{data.publicDescription.summary}</p>
+<section class=" bg-white text-black py-24">
+  <div class="frame">
+    <p class="text-3xl pb-12">Property Description</p>
+    <div class="mb-4 text-lg" style="columns: 2; column-gap: 4rem;">
+      <p>{data.publicDescription.summary}</p>
+    </div>
   </div>
 </section>
 
-<section class="bg-white text-black frame py-24">
-  <div class="mb-4">
-    <h2 class="mb-2 text-3xl pb-12">Amenities</h2>
-    <ul class="list-none grid grid-cols-3 gap-8 text-xl">
-      {#each data.amenities as amenity}
-        <li>{amenity}</li>
-      {/each}
-    </ul>
-  </div>
-</section>
-
-<section class="grid grid-cols-4">
+<section class="grid grid-cols-4 gap-5 p-8">
   {#each data.pictures as picture}
     <div
       class="picture bg-cover bg-center aspect-square"
       style="width: 100%; background-image: url({picture.large})"
     />
   {/each}
+</section>
+
+<section class="bg-bound text-white py-24">
+  <div class="mb-4 frame">
+    <h2 class="mb-2 text-3xl pb-12">Amenities</h2>
+    <ul class="list-none grid grid-cols-3 gap-8 text-2xl">
+      {#each data.amenities as amenity}
+        <li>{amenity}</li>
+      {/each}
+    </ul>
+  </div>
 </section>

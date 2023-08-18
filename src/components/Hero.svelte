@@ -135,7 +135,7 @@
               <a
                 href="/search"
                 type="button"
-                class="my-5 inline-flex items-center justify-center w-auto lg:px-12 px-6 py-4 text-center text-black duration-200 bg-white rounded-full focus:outline-none hover:bg-black hover:ring-bound hover:ring-1 hover:text-white"
+                class="my-5 inline-flex items-center justify-center w-auto lg:px-12 px-6 py-4 text-center text-black duration-200 bg-black text-white rounded-full focus:outline-none hover:bg-black ring-white hover:ring-bound ring-1 hover:text-white"
                 ><div style="position:relative" />
                 Search<!-- -->
               </a>
