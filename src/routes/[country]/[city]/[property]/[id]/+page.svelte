@@ -3,12 +3,12 @@
   console.log(data);
 </script>
 
-<section class="bg-black text-white bg-cover center shadow-xl pt-32 pb-24">
+<section class="bg-black text-white bg-cover center shadow-xl pt-40 pb-24">
   <div>
     <div class="items-center w-full frame">
       <div>
         <img class="invert" src="/logos/stripe.svg" alt="" />
-        <p class="text-3xl">
+        <p class="text-3xl font-medium">
           {data.nickname}
         </p>
         <p class="mt-4 text-3xl">
