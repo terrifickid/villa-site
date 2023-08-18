@@ -1,4 +1,4 @@
-<div class="items-center w-full px-8 py-12 mx-auto md:px-12 lg:px-16 max-w-7xl">
+<div class="frame pb-24">
   <div class="xl:gap-8 xl:grid xl:grid-cols-3 border-t pt-14">
     <div class="text-regent-900 xl:col-span-3">
       <div class="lg:inline-flex lg:items-center justify-between w-full">

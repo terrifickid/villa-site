@@ -1,7 +1,5 @@
 <section>
-  <div
-    class="items-center w-full px-8 pt-12 mx-auto md:px-12 lg:px-16 max-w-7xl lg:pt-32"
-  >
+  <div class="frame py-24">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-end">
       <div>
         <span
@@ -22,10 +20,8 @@
       </div>
     </div>
   </div>
-  <div class="mx-auto mt-24 pb-12 lg:pb-32" x-data="" x-tabs="">
-    <div
-      class="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center w-full px-8 mx-auto md:px-12 lg:px-16 max-w-7xl"
-    >
+  <div class="container frame" x-data="" x-tabs="">
+    <div class="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       <div>
         <h3>
           <a href="#"

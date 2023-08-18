@@ -1,15 +1,13 @@
-<section class="overflow-hidden bg-black text-white min-h-screen">
+<section class="overflow-hidden bg-black text-white py-24">
   <div>
-    <div
-      class="relative items-center py-24 w-full mx-auto px-8 md:px-12 lg:px-16 max-w-7xl"
-    >
+    <div class="relative frame">
       <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-32">
         <div class="text-left">
           <div>
             <p
               class="text-5xl lg:text-5xl tracking-tighter font-medium text-regent-900 mt-24"
             >
-              It's time to find a place to stay.
+              Find a place to stay.
             </p>
           </div>
           <div class="grid grid-cols-2 gap-4 mt-10">

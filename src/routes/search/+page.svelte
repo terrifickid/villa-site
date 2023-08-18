@@ -19,9 +19,7 @@
 </section>
 
 <section>
-  <div
-    class="items-center w-full px-8 py-12 mx-auto md:px-12 lg:px-16 max-w-7xl"
-  >
+  <div class="frame py-12">
     <p class="mb-4 text-xl">{data.results.length} Listings</p>
     <div
       class="grid grid-cols-1 xl:grid-cols-3 sm:grid-cols-2 gap-y-12 gap-x-6"

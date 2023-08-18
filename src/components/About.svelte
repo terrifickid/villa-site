@@ -1,7 +1,5 @@
-<section class="overflow-hidden relative">
-  <div
-    class="items-center w-full px-8 py-12 mx-auto md:px-12 lg:px-16 max-w-7xl lg:py-32"
-  >
+<section>
+  <div class="frame py-24">
     <div>
       <span
         class="text-base items-center inline-flex uppercase tracking-wide font-medium text-bound"
