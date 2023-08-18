@@ -14,7 +14,7 @@
   <div class="frame py-12 pt-40">
     <p class="mb-4 text-xl">{data.results.length} Listings</p>
     <div
-      class="grid grid-cols-1 xl:grid-cols-3 sm:grid-cols-2 gap-y-12 gap-x-6"
+      class="grid grid-cols-1 xl:grid-cols-4 sm:grid-cols-2 gap-y-12 gap-x-6"
     >
       {#each data.results as item}
         <a

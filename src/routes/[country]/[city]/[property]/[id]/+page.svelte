@@ -64,14 +64,14 @@
   </div>
 </section>
 
-<section class="frame">
-  <p class="text-3xl my-12">Property Description</p>
-  <div class="mb-4 text-lg" style="columns: 3; column-gap: 4rem;">
+<section class="frame bg-bound text-white py-24">
+  <p class="text-3xl pb-12">Property Description</p>
+  <div class="mb-4 text-lg" style="columns: 2; column-gap: 4rem;">
     <p>{data.publicDescription.summary}</p>
   </div>
 </section>
 
-<section class="bg-bound text-white frame py-24">
+<section class="bg-white text-black frame py-24">
   <div class="mb-4">
     <h2 class="mb-2 text-3xl pb-12">Amenities</h2>
     <ul class="list-none grid grid-cols-3 gap-8 text-xl">
@@ -82,7 +82,7 @@
   </div>
 </section>
 
-<section class="grid grid-cols-3">
+<section class="grid grid-cols-4">
   {#each data.pictures as picture}
     <div
       class="picture bg-cover bg-center aspect-square"
