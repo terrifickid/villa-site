@@ -10,16 +10,8 @@
   }
 </script>
 
-<section class="bg-black text-white">
-  <div class="relative w-full mx-auto max-w-7xl items-center py-10 lg:px-16">
-    <div>
-      <div class="text-left" />
-    </div>
-  </div>
-</section>
-
 <section>
-  <div class="frame py-12">
+  <div class="frame py-12 pt-40">
     <p class="mb-4 text-xl">{data.results.length} Listings</p>
     <div
       class="grid grid-cols-1 xl:grid-cols-3 sm:grid-cols-2 gap-y-12 gap-x-6"
