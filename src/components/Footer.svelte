@@ -1,4 +1,4 @@
-<div class="frame">
+<div class="bg-bound frame">
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6 border-t pt-12">
     <div>
       <span><img src="/vb.png" style="filter: invert(100%)" class="h-6" /></span
