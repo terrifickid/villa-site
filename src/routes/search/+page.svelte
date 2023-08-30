@@ -12,10 +12,12 @@
 
 <section>
   <div class="frame py-12 pt-40">
-    <p class="mb-4 text-xl">{data.results.length} Listings</p>
-    <div
-      class="grid grid-cols-1 xl:grid-cols-4 sm:grid-cols-2 gap-y-12 gap-x-6"
+    <p
+      class="mb-12 text-2xl md:text-5xl tracking-tighter font-medium text-regent-900"
     >
+      Found ({data.results.length})
+    </p>
+    <div class="grid grid-cols-1 xl:grid-cols-4 sm:grid-cols-2 gap-10">
       {#each data.results as item}
         <a
           href={"/" +
@@ -23,7 +25,9 @@
             "/" +
             item.address.city.replace(/\s+/g, "-").toLowerCase() +
             "/" +
-            item.title.replace(/\s+/g, "-").toLowerCase() +
+            (item.title
+              ? item.title.replace(/\s+/g, "-").toLowerCase()
+              : "property") +
             "/" +
             item._id}
           title="The Power of Positive Thinking"
@@ -32,7 +36,7 @@
           <article class="flex-1 h-full flex flex-col">
             <div class="block w-full lg:col-span-2">
               <img
-                class="aspect-[384/246] object-cover bg-center h-full rounded"
+                class="aspect-square object-cover bg-center h-full rounded"
                 src={item.picture.thumbnail}
                 alt="The Power of Positive Thinking"
               />

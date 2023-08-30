@@ -2,7 +2,9 @@
   let open = false;
 </script>
 
-<section class="fixed bg-black text-white overflow-hidden w-screen z-50 py-7">
+<section
+  class="fixed bg-black text-white overflow-hidden w-screen z-50 py-7 shadow bg-contain"
+>
   <div class="mx-auto flex items-center grid grid-cols-2 frame">
     <div>
       <span><a href="/"><img src="/vb.png" class="h-6 md:h-7" /></a></span>

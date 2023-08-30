@@ -3,39 +3,32 @@
   console.log(data);
 </script>
 
-<section class="bg-black text-white bg-cover center shadow-xl pt-40 pb-24">
+<section class="  bg-cover center pt-40 pb-14">
   <div>
     <div class="items-center w-full frame">
       <div>
-        <img class="invert" src="/logos/stripe.svg" alt="" />
-        <p class="text-3xl font-medium">
+        <p
+          class="text-2xl md:text-5xl tracking-tighter font-medium text-regent-900"
+        >
           {data.nickname}
-        </p>
-        <p class="mt-4 text-3xl">
-          {data.title}
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="bg-black">
-    <img class="w-full" src={data.picture.large} />
+<section class="frame">
+  <div>
+    <img class="w-full rounded" src={data.picture.large} />
   </div>
 </section>
 
-<section class="bg-white text-black cframe">
-  <div class=" text-3xl">
-    <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
+<section class="bg-white text-black frame">
+  <div class="pt-14 pb-12 text-3xl">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
       <div class="mb-4">
         <h2 class=" mb-2">Accommodates</h2>
         <p>{data.accommodates}</p>
-      </div>
-
-      <div class="mb-4">
-        <h2 class="mb-2">Bathrooms</h2>
-        <p>{data.bathrooms}</p>
       </div>
 
       <div class="mb-4">
@@ -43,34 +36,39 @@
         <p>{data.bedrooms}</p>
       </div>
 
+      <div class="mb-4">
+        <h2 class="mb-2">Bathrooms</h2>
+        <p>{data.bathrooms}</p>
+      </div>
+
       <!-- Continue displaying other properties -->
     </div>
   </div>
 </section>
 
-<div class="grid grid-cols-1 frame">
-  <section class=" bg-white text-black">
-    <div>
-      <div class="pb-24 text-lg">
-        <p>{data.publicDescription.summary}</p>
-      </div>
+<section class=" frame bg-white text-black">
+  <div>
+    <div class="pb-24 text-lg pt-4">
+      <p>{data.publicDescription.summary}</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class=" col-span-2 grid grid-cols-4 gap-4">
-    {#each data.pictures as picture}
-      <div
-        class="picture bg-cover bg-center aspect-square"
-        style="width: 100%; background-image: url({picture.large})"
-      />
-    {/each}
-  </section>
-</div>
+<section
+  class="col-span-2 frame grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+>
+  {#each data.pictures as picture}
+    <div
+      class="picture bg-cover bg-center aspect-square rounded"
+      style="width: 100%; background-image: url({picture.large})"
+    />
+  {/each}
+</section>
 
 <section class="bg-white text-black">
-  <div class="mb-4 cframe">
-    <h2 class="mb-2 text-3xl pb-12">Amenities</h2>
-    <ul class="list-none grid grid-cols-2 gap-8 text-3xl">
+  <div class="mb-4 frame">
+    <h2 class="mb-2 text-3xl pb-12 py-12">Amenities</h2>
+    <ul class="list-none grid md:grid-cols-2 gap-8 text-3xl mb-24">
       {#each data.amenities as amenity}
         <li>{amenity}</li>
       {/each}

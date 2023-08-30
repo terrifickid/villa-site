@@ -1,3 +1,7 @@
+<script>
+  export let data;
+</script>
+
 <section>
   <div class="frame py-24">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-end">
@@ -22,90 +26,15 @@
   </div>
   <div class="frame" x-data="" x-tabs="">
     <div class="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      <div>
-        <h3>
-          <a href="#"
-            ><span class="text-lg text-medium font-mono">Anguilla</span>
-          </a>
-        </h3>
-      </div>
-
-      <div>
-        <h3>
-          <a href="#"
-            ><span class="text-lg text-medium font-mono">Barbados</span>
-          </a>
-        </h3>
-      </div>
-      <div>
-        <h3>
-          <a href="#"
-            ><span class="text-lg text-medium font-mono"
-              >Dominican Republic</span
-            >
-          </a>
-        </h3>
-      </div>
-      <div>
-        <h3>
-          <a href="#"
-            ><span class="text-lg text-medium font-mono">Grenada</span>
-          </a>
-        </h3>
-      </div>
-      <div>
-        <h3>
-          <a href="#"
-            ><span class="text-lg text-medium font-mono">Jamaica</span>
-          </a>
-        </h3>
-      </div>
-      <div>
-        <h3>
-          <a href="#"
-            ><span class="text-lg text-medium font-mono">Saint Barthelemy</span>
-          </a>
-        </h3>
-      </div>
-      <div>
-        <h3>
-          <a href="#"
-            ><span class="text-lg text-medium font-mono">Saint Lucia</span>
-          </a>
-        </h3>
-      </div>
-      <div>
-        <h3>
-          <a href="#"
-            ><span class="text-lg text-medium font-mono"
-              >Saint Vincent and the Grenadines</span
-            >
-          </a>
-        </h3>
-      </div>
-      <div>
-        <h3>
-          <a href="#"
-            ><span class="text-lg text-medium font-mono">The Bahamas</span>
-          </a>
-        </h3>
-      </div>
-      <div>
-        <h3>
-          <a href="#"
-            ><span class="text-lg text-medium font-mono"
-              >Turks and Caicos Islands</span
-            >
-          </a>
-        </h3>
-      </div>
-      <div>
-        <h3>
-          <a href="#"
-            ><span class="text-lg text-medium font-mono">United States</span>
-          </a>
-        </h3>
-      </div>
+      {#each data.countries as country}
+        <div>
+          <h3>
+            <a class="hover:underline" href={"/destinations/" + country}
+              ><span class="text-lg text-medium font-mono">{country}</span>
+            </a>
+          </h3>
+        </div>
+      {/each}
     </div>
   </div>
 </section>
