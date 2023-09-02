@@ -7,7 +7,7 @@ export async function load({ params }) {
     });
     return response.data;
   } catch (error) {
-    console.error(error);
+    console.error("Couldnt find listing ID", error);
     return {
       results: [],
     };

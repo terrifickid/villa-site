@@ -29,7 +29,7 @@
       {#each data.countries as country}
         <div>
           <h3>
-            <a class="hover:underline" href={"/destinations/" + country}
+            <a class="hover:underline" href={"/" + country}
               ><span class="text-lg text-medium font-mono">{country}</span>
             </a>
           </h3>

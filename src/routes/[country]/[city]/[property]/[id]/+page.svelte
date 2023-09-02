@@ -1,44 +1,58 @@
 <script>
   export let data;
   console.log(data);
+  function formatPrice(price, currency) {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency,
+    }).format(price);
+  }
 </script>
 
-<section class="  bg-cover center pt-40 pb-14">
+<section class="bg-cover center pt-32 md:pt-40 pb-6">
   <div>
     <div class="items-center w-full frame">
-      <div>
-        <p
-          class="text-2xl md:text-5xl tracking-tighter font-medium text-regent-900"
-        >
-          {data.nickname}
-        </p>
+      <div class="grid grid-cols-2 flex items-center">
+        <div>
+          <p
+            class="text-2xl md:text-4xl lg:text-5xl tracking-tighter font-medium text-regent-900"
+          >
+            {data.nickname}
+          </p>
+          <p class="text-2xl lg:text-3xl">
+            {formatPrice(data.prices.basePrice, data.prices.currency)}
+            Per Night
+          </p>
+        </div>
+        <div class="flex justify-end">
+          <button
+            type="button"
+            class="p-5 flex items-center text-lg md:p-6 md:px-8 md:text-2xl text-center text-white duration-200 bg-black font-medium rounded-full text-base focus:outline-none hover:bg-white hover:ring-bound hover:ring-1 hover:text-black"
+            ><div style="position:relative" />
+
+            Make a Booking
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="frame">
-  <div>
-    <img class="w-full rounded" src={data.picture.large} />
-  </div>
-</section>
+<p class="mb-1" />
 
 <section class="bg-white text-black frame">
-  <div class="pt-14 pb-12 text-3xl">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+  <div class="text-2xl lg:text-3xl">
+    <div class="grid grid-cols-3 lg:grid-cols-3 gap-4">
       <div class="mb-4">
-        <h2 class=" mb-2">Accommodates</h2>
-        <p>{data.accommodates}</p>
+        <p>Guests<br />{data.accommodates}</p>
       </div>
 
-      <div class="mb-4">
-        <h2 class=" mb-2">Bedrooms</h2>
-        <p>{data.bedrooms}</p>
+      <div>
+        <p>Beds<br />{data.bedrooms}</p>
       </div>
 
-      <div class="mb-4">
-        <h2 class="mb-2">Bathrooms</h2>
-        <p>{data.bathrooms}</p>
+      <div>
+        <p>Baths<br />{data.bathrooms}</p>
       </div>
 
       <!-- Continue displaying other properties -->
@@ -46,32 +60,41 @@
   </div>
 </section>
 
-<section class=" frame bg-white text-black">
+<section class="frame my-12">
   <div>
-    <div class="pb-24 text-lg pt-4">
-      <p>{data.publicDescription.summary}</p>
-    </div>
+    <img class="w-full rounded" src={data.pictures[0].original} />
   </div>
 </section>
 
+{#if data.publicDescription.summary}
+  <section class=" frame bg-white text-black">
+    <div>
+      <div class="pb-24 text-lg pt-4">
+        <p>{data.publicDescription.summary}</p>
+      </div>
+    </div>
+  </section>
+{/if}
+
 <section
-  class="col-span-2 frame grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+  class="col-span-2 frame grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12"
 >
   {#each data.pictures as picture}
     <div
       class="picture bg-cover bg-center aspect-square rounded"
-      style="width: 100%; background-image: url({picture.large})"
+      style="width: 100%; background-image: url({picture.original})"
     />
   {/each}
 </section>
 
-<section class="bg-white text-black">
-  <div class="mb-4 frame">
-    <h2 class="mb-2 text-3xl pb-12 py-12">Amenities</h2>
-    <ul class="list-none grid md:grid-cols-2 gap-8 text-3xl mb-24">
-      {#each data.amenities as amenity}
-        <li>{amenity}</li>
-      {/each}
-    </ul>
-  </div>
-</section>
+{#if data.amenities.length}
+  <section class="bg-white text-black">
+    <div class="mb-4 frame">
+      <ul class="list-none grid md:grid-cols-2 gap-8 text-2xl mb-24">
+        {#each data.amenities as amenity}
+          <li>{amenity}</li>
+        {/each}
+      </ul>
+    </div>
+  </section>
+{/if}
