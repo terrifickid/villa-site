@@ -29,7 +29,7 @@
           <div class="text-left">
             <div>
               <p
-                class="text-5xl lg:text-5xl tracking-tighter font-medium text-regent-900 mt-24"
+                class="text-3xl md:text-4xl xl:text-5xl tracking-tighter font-medium text-regent-900 mt-24"
               >
                 Find a place to stay.
               </p>
