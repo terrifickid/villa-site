@@ -66,7 +66,7 @@
 <p class="mb-1" />
 
 <section class="bg-white text-black frame">
-  <div class="text-xl md:text-2xl lg:text-3xl">
+  <div class="text-lg md:text-2xl lg:text-3xl">
     <div class="grid grid-cols-3 lg:grid-cols-3 gap-4">
       <div class="mb-4">
         <p>Guests<br />{data.accommodates}</p>
