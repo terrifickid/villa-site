@@ -11,3 +11,7 @@
 .cframe {
   @apply mx-auto p-4 md:p-12 lg:py-24;
 }
+
+.v_heading {
+  @apply text-2xl md:text-4xl lg:text-5xl tracking-tighter font-medium;
+}

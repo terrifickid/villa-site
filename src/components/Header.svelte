@@ -5,7 +5,7 @@
 </script>
 
 <section
-  class="fixed bg-black text-white overflow-hidden w-screen z-50 py-7 shadow bg-contain"
+  class="fixed bg-black text-white overflow-hidden w-screen z-50 py-7 shadow-md bg-contain"
 >
   <div class="mx-auto grid grid-cols-12 frame">
     <div class="col-span-10">

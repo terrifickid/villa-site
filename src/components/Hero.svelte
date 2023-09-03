@@ -19,7 +19,9 @@
 </script>
 
 <KeywordSearch />
-<section class="bg-black overflow-hidden text-white py-24 bg-cover bg-center">
+<section
+  class="bg-black overflow-hidden text-white py-24 bg-cover bg-center shadow-md"
+>
   <form on:submit={handleSubmit}>
     <div>
       <div class="relative frame">
@@ -28,11 +30,7 @@
         >
           <div class="text-left">
             <div>
-              <p
-                class="text-3xl md:text-4xl xl:text-5xl tracking-tighter font-medium text-regent-900 mt-24"
-              >
-                Find a place to stay.
-              </p>
+              <p class="v_heading mt-24">Find a place to stay.</p>
             </div>
             <div class="grid grid-cols-2 gap-4 mt-10">
               <div>
@@ -172,6 +170,7 @@
           </div>
 
           <div class="w-full mx-auto max-w-7xl">
+            <input type="date" />
             <img
               src="https://www.villabound.com/wp-content/themes/caribound/assets/7flntut11.jpg"
             />

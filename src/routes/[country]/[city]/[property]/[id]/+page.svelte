@@ -22,9 +22,7 @@
     <div class="items-center w-full frame">
       <div class="grid grid-cols-2 flex items-center">
         <div>
-          <p
-            class="text-2xl md:text-4xl lg:text-5xl tracking-tighter font-medium text-regent-900"
-          >
+          <p class="v_heading">
             {data.nickname}
           </p>
           <p class="text-2xl lg:text-3xl">

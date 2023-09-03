@@ -6,9 +6,7 @@
 
 <section>
   <div class="frame py-12 pt-32 md:pt-40">
-    <p
-      class="mb-12 text-2xl md:text-5xl tracking-tighter font-medium text-regent-900"
-    >
+    <p class="mb-12 v_heading">
       {decodeURI(data.destination)} ({data.results.length})
     </p>
     <PropertyList {data} />
