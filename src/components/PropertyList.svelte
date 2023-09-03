@@ -6,6 +6,13 @@
       currency,
     }).format(price);
   }
+  function getMainImage(item) {
+    var p = "/p.svg";
+    if (!item.pictures.length) return p;
+    if (item?.pictures[0]?.original) p = item?.pictures[0]?.original;
+    if (item?.picture?.large) p = item?.picture?.large;
+    return p;
+  }
 </script>
 
 <div
@@ -28,7 +35,7 @@
       <article>
         <div
           class="aspect-square object-cover bg-center bg-cover h-full rounded"
-          style="background-image: url({item.picture.thumbnail})"
+          style="background-image: url({getMainImage(item)})"
         />
 
         <div

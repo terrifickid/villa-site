@@ -8,6 +8,5 @@
 <div class="font-general">
   <Header />
   <slot />
-
   <Newsletter />
 </div>

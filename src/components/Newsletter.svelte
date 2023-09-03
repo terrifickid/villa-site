@@ -1,5 +1,5 @@
 <div class="frame pb-24">
-  <div class="xl:gap-8 xl:grid xl:grid-cols-3 border-t pt-14">
+  <div class="xl:gap-8 xl:grid xl:grid-cols-3 border-t pt-10 mt-12">
     <div class="text-regent-900 xl:col-span-3">
       <div class="lg:inline-flex lg:items-center justify-between w-full">
         <div>
@@ -113,7 +113,7 @@
         </form>
       </div>
     </div>
-    <div class="grid md:grid-cols-4 gap-8 mt-6 xl:col-span-3 border-t pt-12">
+    <div class="grid md:grid-cols-4 gap-8 xl:col-span-3 border-t pt-12 mt-10">
       <div>
         <h3 class="text-regent-900 font-medium lg:text-xl text-lg">Sitemap</h3>
         <ul class="mt-4 space-y-2" role="list">

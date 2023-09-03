@@ -7,6 +7,14 @@
       currency,
     }).format(price);
   }
+
+  function getMainImage() {
+    var p = "/p.svg";
+    if (!data?.pictures.length) return p;
+    if (data?.pictures[0]?.original) p = data?.pictures[0]?.original;
+    if (data?.picture?.large) p = data?.picture?.large;
+    return p;
+  }
 </script>
 
 <section class="bg-cover center pt-32 md:pt-40 pb-6">
@@ -62,7 +70,7 @@
 
 <section class="frame my-12">
   <div>
-    <img class="w-full rounded" src={data.pictures[0].original} />
+    <img class="w-full rounded" src={getMainImage()} />
   </div>
 </section>
 
