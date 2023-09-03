@@ -95,16 +95,39 @@
             </span>
           </p>
         </div>
-        <form class="mt-4 flex max-w-xl flex-col items-center">
+        <form
+          accept-charset="UTF-8"
+          action="https://gs324.infusionsoft.com/app/form/process/832e3dc5d191bcb7f1a1cc74b0a1df11"
+          method="POST"
+          class="mt-4 flex max-w-xl flex-col items-center"
+        >
+          <input
+            name="inf_form_xid"
+            type="hidden"
+            value="832e3dc5d191bcb7f1a1cc74b0a1df11"
+            autocomplete="off"
+          />
+          <input
+            name="inf_form_name"
+            type="hidden"
+            value="Web Form submitted"
+            autocomplete="off"
+          />
+          <input
+            name="infusionsoft_version"
+            type="hidden"
+            value="1.68.0.104"
+            autocomplete="off"
+          />
           <div class="mt-3 flex w-full flex-col gap-1 sm:flex-row">
             <input
-              name="email"
+              name="inf_field_Email"
               type="email"
               class="lg:px-12 px-6 py-4 bg-white placeholder-slate-400 border border-slate-300 duration-200 focus:outline-none focus:ring focus:ring-regent-100 focus:border-regent-300 w-full rounded-full"
               placeholder="Enter your email..."
               required=""
             /><button
-              type="button"
+              type="submit"
               class="mt-3 sm:mt-0 sm: ml-2 inline-flex items-center justify-center w-auto lg:px-12 px-6 py-4 text-center text-white duration-200 bg-black font-medium rounded-full text-base focus:outline-none hover:bg-white hover:ring-bound hover:ring-1 hover:text-black"
               ><div style="position:relative" />
               Submit<!-- -->
