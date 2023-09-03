@@ -12,10 +12,7 @@
       <span><a href="/"><img src="/vb.png" class="h-6 md:h-7" /></a></span>
     </div>
     <div>
-      <a
-        href="/favorites"
-        class="stroke-white hover:fill-bound hover:stroke-bound"
-      >
+      <a href="/favorites" class="fill-black stroke-white hover:stroke-bound">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -31,13 +28,11 @@
       </a>
     </div>
     <div class="text-right">
-      <a href="/" class="stroke-white hover:fill-bound hover:stroke-bound">
+      <a href="/" class="fill-black stroke-white hover:stroke-bound">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="none"
           viewBox="0 0 24 24"
           stroke-width="1.5"
-          stroke="currentColor"
           class="w-6 h-6 inline"
         >
           <path

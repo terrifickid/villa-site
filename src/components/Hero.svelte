@@ -14,6 +14,10 @@
     goto(searchUrl, false);
   }
 
+  function checkOut() {
+    document.getElementById("checkOut").focus();
+    document.getElementById("checkOut").select();
+  }
   export let data;
   console.log(data);
 </script>
@@ -120,13 +124,12 @@
                     />
                   </svg>&nbsp;Check In</label
                 >
-                <select
+                <input
                   bind:value={search.checkIn}
-                  name="checkin"
-                  class="bg-black text-white mt-2 block w-full rounded-full border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-bound sm:text-sm sm:leading-6"
-                >
-                  <DateOption plus="2" />
-                </select>
+                  class="text-white bg-black rounded-full border-0 ring-gray-300 ring-1 focus:ring-bound focus:ring-2 mt-2 py-1.5 pl-3 w-full sm:text-sm sm:leading-6"
+                  type="date"
+                  style=" color-scheme: dark;"
+                />
               </div>
 
               <div>
@@ -146,18 +149,20 @@
                     />
                   </svg>&nbsp;Check Out</label
                 >
-                <select
+
+                <input
+                  id="checkOut"
                   bind:value={search.checkOut}
-                  name="checkout"
-                  class="bg-black text-white mt-2 block w-full rounded-full border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-bound sm:text-sm sm:leading-6"
-                >
-                  <DateOption plus="3" />
-                </select>
+                  class="text-white bg-black rounded-full border-0 ring-gray-300 ring-1 focus:ring-bound focus:ring-2 mt-2 py-1.5 pl-3 w-full sm:text-sm sm:leading-6"
+                  type="date"
+                  style=" color-scheme: dark;"
+                />
               </div>
+
               <div>
                 <button
                   type="submit"
-                  class="my-5 inline-flex cursor-pointer items-center justify-center w-auto lg:px-12 px-6 py-4 text-center text-black duration-200 bg-black text-white rounded-full focus:outline-none hover:bg-black ring-white hover:ring-bound ring-1 hover:text-white"
+                  class="my-5 inline-flex cursor-pointer items-center justify-center w-auto lg:px-12 px-6 py-4 text-center duration-200 bg-black text-white rounded-full focus:outline-none hover:bg-black ring-white hover:ring-bound ring-1 hover:text-white hover:bg-black"
                 >
                   {#if searching}
                     <Spinner />
@@ -170,7 +175,6 @@
           </div>
 
           <div class="w-full mx-auto max-w-7xl">
-            <input type="date" />
             <img
               src="https://www.villabound.com/wp-content/themes/caribound/assets/7flntut11.jpg"
             />
