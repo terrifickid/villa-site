@@ -7,8 +7,8 @@
 <section
   class="fixed bg-black text-white overflow-hidden w-screen z-50 py-7 shadow-md bg-contain"
 >
-  <div class="mx-auto grid grid-cols-12 frame">
-    <div class="col-span-10">
+  <div class="mx-auto grid grid-cols-10 frame">
+    <div class="col-span-8">
       <span><a href="/"><img src="/vb.png" class="h-6 md:h-7" /></a></span>
     </div>
     <div>

@@ -1,5 +1,8 @@
 <script>
   export let data;
+  let more = true;
+  import Booker from "$components/Booker.svelte";
+
   console.log(data);
   function formatPrice(price, currency) {
     return new Intl.NumberFormat("en-US", {
@@ -20,14 +23,10 @@
 <section class=" center pt-32 md:pt-40 pb-6">
   <div class="">
     <div class="items-center w-full frame">
-      <div class=" grid grid-cols-1 md:grid-cols-2 flex items-center">
+      <div class=" grid grid-cols-1 flex items-center">
         <div>
           <p class="v_heading">
             {data.nickname}
-          </p>
-          <p class="text-2xl lg:text-3xl">
-            {formatPrice(data.prices.basePrice, data.prices.currency)}
-            Per Night
           </p>
         </div>
         <div class=" justify-end hidden">
@@ -114,41 +113,42 @@
   </button>
 </div>
 
-<section class="frame my-12">
+<section class="frame my-6">
   <div>
     <img class="w-full rounded" src={getMainImage()} />
   </div>
 </section>
 
 {#if data.publicDescription.summary}
-  <section class=" frame bg-white text-black">
+  <section class="frame bg-white text-black text-xl py-12">
     <div>
-      <div class="pb-24 text-lg pt-4">
-        <p>{data.publicDescription.summary}</p>
+      <div class="grid grid-cols-1 gap-0 lg:grid-cols-3 md:gap-12">
+        <div class="lg:col-span-2">
+          <p class="mb-2 font-medium">Description</p>
+          <p class:line-clamp-6={more}>{data.publicDescription.summary}</p>
+          <button on:click={() => (more = !more)} class="pt-2 text-md underline"
+            >Show More</button
+          >
+          <hr class="my-12" />
+          {#if data.amenities.length}
+            <ul class=" list-none grid md:grid-cols-2 gap-8 mb-24">
+              {#each data.amenities as amenity}
+                <li>{amenity}</li>
+              {/each}
+            </ul>
+          {/if}
+
+          <section class="grid md:grid-cols-1 gap-4 md:gap-6">
+            {#each data.pictures as picture}
+              <div
+                class="picture bg-cover bg-center aspect-square rounded"
+                style="width: 100%; background-image: url({picture.original})"
+              />
+            {/each}
+          </section>
+        </div>
+        <Booker {data} />
       </div>
-    </div>
-  </section>
-{/if}
-
-<section
-  class="col-span-2 frame grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12"
->
-  {#each data.pictures as picture}
-    <div
-      class="picture bg-cover bg-center aspect-square rounded"
-      style="width: 100%; background-image: url({picture.original})"
-    />
-  {/each}
-</section>
-
-{#if data.amenities.length}
-  <section class="bg-white text-black">
-    <div class="mb-4 frame">
-      <ul class="list-none grid md:grid-cols-2 gap-8 text-2xl mb-24">
-        {#each data.amenities as amenity}
-          <li>{amenity}</li>
-        {/each}
-      </ul>
     </div>
   </section>
 {/if}
