@@ -1,7 +1,10 @@
 <script>
   export let data;
   import axios from "axios";
+  import { goto } from "$app/navigation";
+  import Spinner from "../components/Spinner.svelte";
   let guests = 2;
+  let isChecking = false;
   let checkInDate = getNextFriday();
   let checkOutDate = getNextMondayAfterFriday();
   function getNextFriday() {
@@ -28,6 +31,7 @@
     }).format(price);
   }
   async function checkAvailability() {
+    isChecking = true;
     const apiUrl = "https://vapi-le6wug7tlq-vp.a.run.app/quote";
     try {
       const response = await axios.post(apiUrl, {
@@ -36,10 +40,14 @@
         checkInDateLocalized: checkInDate,
         checkOutDateLocalized: checkOutDate,
       });
-      console.log("Checkng avail", response.data);
+      console.log("Checkng avail", response.data._id);
+
+      goto("/book/" + response.data._id);
     } catch (error) {
       console.error("checkAvailablity", error);
+      alert(error.response.data.error.error.message);
     }
+    isChecking = false;
   }
 </script>
 
@@ -47,6 +55,7 @@
   class="bg-white border-t border-black fixed lg:hidden bottom-0 left-0 right-0 frame py-4 grid grid-cols-2 flex items-center z-50"
 >
   <div>
+    <p>{data.nickname}</p>
     <span class="font-medium"
       >{formatPrice(data.prices.basePrice, data.prices.currency)}</span
     > / night
@@ -63,6 +72,7 @@
 </div>
 <div class="hidden lg:block">
   <div class="border border-black p-6 rounded-xl shadow sticky top-32">
+    <p>{data.nickname}</p>
     <p class="font-medium pb-4">
       {formatPrice(data.prices.basePrice, data.prices.currency)} / night
     </p>
@@ -140,7 +150,11 @@
         type="submit"
         class="text-lg my-5 inline-flex w-full cursor-pointer items-center justify-center w-auto lg:px-12 px-6 py-4 text-center duration-200 bg-black text-white rounded-full focus:outline-none hover:bg-black ring-white hover:ring-bound ring-1 hover:text-white hover:bg-black"
       >
-        Reserve
+        {#if isChecking}
+          <Spinner />
+        {:else}
+          Reserve
+        {/if}
       </button>
     </div>
   </div>
