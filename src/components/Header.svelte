@@ -11,7 +11,7 @@
     <div class="col-span-8">
       <span><a href="/"><img src="/vb.png" class="h-6 md:h-7" /></a></span>
     </div>
-    <div>
+    <div class="hidden">
       <a href="/favorites" class="fill-black stroke-white hover:stroke-bound">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@
         </svg>
       </a>
     </div>
-    <div class="text-right">
+    <div class="col-span-2 text-right">
       <a href="/" class="fill-black stroke-white hover:stroke-bound">
         <svg
           xmlns="http://www.w3.org/2000/svg"

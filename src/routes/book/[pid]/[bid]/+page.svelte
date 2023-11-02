@@ -1,25 +1,12 @@
 <script>
   export let data;
+
   import BookingSummary from "$components/BookingSummary.svelte";
-  import { onMount } from "svelte";
-  let stripeReady = false;
-  let mounted = false;
+  import ConfirmAndPay from "../../../../components/ConfirmAndPay.svelte";
 
-  onMount(() => {
-    var stripe = Stripe("pk_live_ifI6zGqmmINgBCUQmIKeZqIT");
-    var elements = stripe.elements({
-      mode: "payment",
-      currency: "usd",
-      amount: 1099,
-    });
-    var expressCheckoutElement = elements.create("expressCheckout");
-    expressCheckoutElement.mount("#villa-form");
-  });
+  let reservation = data.data[0].data;
+  let property = data.data[1].data;
 </script>
-
-<svelte:head>
-  <script src="https://js.stripe.com/v3/"></script>
-</svelte:head>
 
 <section class=" frame pt-32 md:pt-40 pb-6">
   <div>
@@ -46,12 +33,12 @@
       </button>
       <div class="pl-3">Confirm & Pay</div>
     </h1>
-    <div class="grid grid-cols-2">
-      <div>
-        Payment FOrm
-        <div id="villa-form" />
-      </div>
-      <BookingSummary {data} />
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-24">
+      <ConfirmAndPay {reservation} />
+      <BookingSummary {reservation} {property} />
     </div>
   </div>
 </section>
+
+<style>
+</style>

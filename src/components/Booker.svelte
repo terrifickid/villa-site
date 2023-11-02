@@ -36,18 +36,18 @@
     try {
       const response = await axios.post(apiUrl, {
         guestsCount: guests,
-        listingId: "640a24eea0660a002f5119f8",
+        listingId: data._id,
         checkInDateLocalized: checkInDate,
         checkOutDateLocalized: checkOutDate,
       });
       console.log("Checkng avail", response.data._id);
 
-      goto("/book/" + response.data._id);
+      goto("/book/" + data._id + "/" + response.data._id);
     } catch (error) {
       console.error("checkAvailablity", error);
       alert(error.response.data.error.error.message);
+      isChecking = false;
     }
-    isChecking = false;
   }
 </script>
 
