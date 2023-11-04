@@ -4,7 +4,27 @@
   import DateOption from "../components/DateOption.svelte";
   import KeywordSearch from "../components/KeywordSearch.svelte";
   let searching = false;
-  let search = {};
+  let search = {
+    checkIn: getNextFriday(),
+    checkOut: getNextMondayAfterFriday(),
+  };
+  function getNextFriday() {
+    const today = new Date();
+    const daysUntilFriday = (5 - today.getDay() + 7) % 7; // Calculate days until the next Friday
+    const nextFriday = new Date(today);
+    nextFriday.setDate(today.getDate() + daysUntilFriday);
+
+    // Format the date as 'YYYY-MM-DD' for the input element
+    return nextFriday.toISOString().split("T")[0];
+  }
+  function getNextMondayAfterFriday() {
+    const nextFriday = new Date(getNextFriday());
+    const nextMonday = new Date(nextFriday);
+    nextMonday.setDate(nextFriday.getDate() + 3); // Add 3 days to get the Monday after the next Friday
+
+    // Format the date as 'YYYY-MM-DD' for the input element
+    return nextMonday.toISOString().split("T")[0];
+  }
   function handleSubmit() {
     console.log(search);
     event.preventDefault();

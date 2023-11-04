@@ -1,9 +1,11 @@
 <script>
   export let data;
   let more = true;
+
   import Booker from "$components/Booker.svelte";
 
   console.log(data);
+
   function formatPrice(price, currency) {
     return new Intl.NumberFormat("en-US", {
       style: "currency",

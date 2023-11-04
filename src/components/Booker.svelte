@@ -1,5 +1,6 @@
 <script>
   export let data;
+  import { onMount } from "svelte";
   import axios from "axios";
   import { goto } from "$app/navigation";
   import Spinner from "../components/Spinner.svelte";
@@ -49,6 +50,20 @@
       isChecking = false;
     }
   }
+  onMount(async () => {
+    let urlParams = new URLSearchParams(window.location.search);
+    const checkInParam = urlParams.get("checkIn");
+    const checkOutParam = urlParams.get("checkOut");
+    console.log("param", checkOutParam);
+    if (checkInParam) {
+      var i = new Date(checkInParam);
+      checkInDate = i.toISOString().split("T")[0];
+    }
+    if (checkOutParam) {
+      var o = new Date(checkOutParam);
+      checkOutDate = o.toISOString().split("T")[0];
+    }
+  });
 </script>
 
 <div

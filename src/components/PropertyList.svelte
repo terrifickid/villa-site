@@ -1,5 +1,7 @@
 <script>
+  import { onMount } from "svelte";
   export let data;
+  let search = null;
   function formatPrice(price, currency) {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -13,6 +15,9 @@
     if (item?.picture?.large) p = item?.picture?.large;
     return p;
   }
+  onMount(() => {
+    search = window.location.search;
+  });
 </script>
 
 <div
@@ -29,7 +34,8 @@
           ? item.title.replace(/\s+/g, "-").toLowerCase()
           : "property") +
         "/" +
-        item._id}
+        item._id +
+        search}
       class="group mb-6"
     >
       <article>

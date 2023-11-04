@@ -1,5 +1,6 @@
 <script>
   export let reservation;
+  import _ from "lodash";
 
   import Spinner from "$components/Spinner.svelte";
   import { loadStripe } from "@stripe/stripe-js";
@@ -14,6 +15,7 @@
     stripe = await loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
     elements = stripe.elements();
     cardElement = elements.create("card");
+    cardElement.on("change", function (event) {});
     cardElement.mount("#card-element");
   });
 
@@ -21,9 +23,13 @@
     event.preventDefault();
     try {
       loading = true;
+      console.log("crate token");
       let card = await stripe.createToken(cardElement);
-      console.log(card);
+      if (_.has(card, "error")) loading = false;
+
+      console.log("card", card);
     } catch (err) {
+      console.log("error!");
       console.log(err);
     }
   }

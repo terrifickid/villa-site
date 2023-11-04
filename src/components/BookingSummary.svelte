@@ -2,10 +2,12 @@
   export let property;
   export let reservation;
   import _ from "lodash";
+
   var items = _.get(
     reservation,
     "rates.ratePlans[0].ratePlan.money.invoiceItems"
   );
+
   // Initialize a variable to store the sum
   let fees = 0;
   let fare = items.shift();
@@ -14,6 +16,10 @@
     fees += items[i].amount;
   }
 
+  var items = _.get(
+    reservation,
+    "rates.ratePlans[0].ratePlan.money.invoiceItems"
+  );
   console.log("fare", fare);
   var days = _.get(reservation, "rates.ratePlans[0].days.length");
   var perNight = fare.amount / days;
