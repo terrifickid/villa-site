@@ -1,6 +1,6 @@
 import axios from "axios";
 export async function load({ params }) {
-  const apiUrl = "http://localhost:8080/keyword";
+  const apiUrl = "https://vapi-le6wug7tlq-vp.a.run.app/keyword";
   try {
     const response = await axios.post(apiUrl, {
       search: params.keyword,
