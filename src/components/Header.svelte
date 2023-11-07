@@ -1,7 +1,12 @@
 <script>
   export let data;
-  let open = false;
+  let isModalOpen = false;
   import Hero from "$components/Hero.svelte";
+  import KeywordSearchModal from "$components/KeywordSearchModal.svelte";
+
+  function openModal() {
+    isModalOpen = true;
+  }
 </script>
 
 <section
@@ -28,7 +33,10 @@
       </a>
     </div>
     <div class="col-span-2 text-right">
-      <a href="/" class="fill-black stroke-white hover:stroke-bound">
+      <button
+        on:click={openModal}
+        class="fill-black stroke-white hover:stroke-bound"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -41,8 +49,9 @@
             d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
           />
         </svg>
-      </a>
+      </button>
     </div>
   </div>
   <div />
 </section>
+<KeywordSearchModal bind:isOpen={isModalOpen} />

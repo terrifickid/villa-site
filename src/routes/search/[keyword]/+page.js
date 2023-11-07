@@ -1,12 +1,13 @@
 import axios from "axios";
-export async function load({ url }) {
-  console.log("Searching...", url.search);
-  const apiUrl = "https://vapi-le6wug7tlq-vp.a.run.app/search";
+export async function load({ params }) {
+  console.log("morg...", params);
+  const apiUrl = "http://localhost:8080/keyword";
   try {
     const response = await axios.post(apiUrl, {
-      query: "listings" + url.search,
+      search: params.keyword,
     });
-    return response.data;
+    console.log("data", response);
+    return { results: response.data, keyword: params.keyword };
   } catch (error) {
     console.error(error);
     return {
