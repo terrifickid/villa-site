@@ -17,6 +17,7 @@ export async function load({ page }) {
       })
     );
     const responses = await Promise.all(responsePromises);
+    console.log("res", responses);
     const combinedData = responses.map((response) => response.data.results);
     const allCities = Object.values(combinedData).reduce(
       (acc, data) => [...acc, ...data],
