@@ -1,6 +1,7 @@
 <script>
   export let reservation;
   import _ from "lodash";
+  import axios from "axios";
 
   import Spinner from "$components/Spinner.svelte";
   import { loadStripe } from "@stripe/stripe-js";
@@ -10,6 +11,12 @@
   let stripe = null;
   let cardElement = null;
   let elements = null;
+  let guest = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+  };
 
   onMount(async () => {
     stripe = await loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
@@ -18,37 +25,91 @@
     cardElement.on("change", function (event) {});
     cardElement.mount("#card-element");
   });
+  async function createBooking(quoteId, ccToken, ratePlanId, guest) {
+    console.log(
+      "Got Payment Token, Creating Reservation...",
+      quoteId,
+      ccToken,
+      ratePlanId,
+      guest
+    );
+    try {
+      const response = await axios.post(
+        "https://vapi-le6wug7tlq-vp.a.run.app/book",
+        {
+          quoteId,
+          ccToken,
+          ratePlanId,
+          guest,
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   async function handleSubmit() {
     event.preventDefault();
     try {
       loading = true;
       console.log("crate token");
-      let card = await stripe.createToken(cardElement);
-      if (_.has(card, "error")) loading = false;
-
-      console.log("card", card);
+      var r = await stripe.createPaymentMethod({
+        type: "card",
+        card: cardElement,
+        billing_details: {
+          name: "Jenny Rosen",
+        },
+      });
+      if (_.has(r, "paymentMethod.id")) {
+        var ccToken = _.get(r, "paymentMethod.id");
+        var quoteId = _.get(reservation, "_id");
+        var ratePlanId = _.get(reservation, "rates.ratePlans[0].ratePlan._id");
+        const booking = await createBooking(
+          ccToken,
+          quoteId,
+          ratePlanId,
+          quote
+        );
+      } else {
+        loading = false;
+      }
     } catch (err) {
       console.log("error!");
       console.log(err);
+      loading = false;
     }
   }
 </script>
 
 <form on:submit={handleSubmit}>
-  <div class="mb-4">
-    <label for="location" class="flex text-sm leading-6"> &nbsp;Name</label>
-    <input
-      required
-      type="Text"
-      name="location"
-      class="mt-2 block w-full rounded-full border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-bound sm:text-sm sm:leading-6"
-    />
+  <div class="grid grid-cols-2 gap-x-6 mb-4">
+    <div class="">
+      <label for="location" class="flex text-sm leading-6">First Name</label>
+      <input
+        bind:value={guest.firstName}
+        required
+        type="Text"
+        name="location"
+        class="mt-2 block w-full rounded-full border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-bound sm:text-sm sm:leading-6"
+      />
+    </div>
+    <div class="">
+      <label for="location" class="flex text-sm leading-6">Last Name</label>
+      <input
+        bind:value={guest.lastName}
+        required
+        type="Text"
+        name="location"
+        class="mt-2 block w-full rounded-full border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-bound sm:text-sm sm:leading-6"
+      />
+    </div>
   </div>
-  <div class="grid grid-cols-2 gap-6 mb-8">
+  <div class="grid grid-cols-1 gap-6 mb-8">
     <div>
       <label for="location" class="flex text-sm leading-6"> &nbsp;Email</label>
       <input
+        bind:value={guest.email}
         required
         type="Text"
         name="location"
@@ -58,6 +119,7 @@
     <div>
       <label for="location" class="flex text-sm leading-6"> &nbsp;Phone</label>
       <input
+        bind:value={guest.phone}
         required
         type="Text"
         name="location"

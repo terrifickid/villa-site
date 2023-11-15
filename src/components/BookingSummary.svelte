@@ -20,7 +20,7 @@
     reservation,
     "rates.ratePlans[0].ratePlan.money.invoiceItems"
   );
-  console.log("fare", fare);
+
   var days = _.get(reservation, "rates.ratePlans[0].days.length");
   var perNight = fare.amount / days;
   console.log(reservation);
