@@ -13,7 +13,7 @@
 }
 
 .v_heading {
-  @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-tighter font-medium;
+  @apply text-2xl md:text-3xl lg:text-4xl tracking-tighter font-medium;
 }
 
 .ElementsApp input {
