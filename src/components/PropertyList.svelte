@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import _ from "lodash";
   export let data;
   let search = null;
   function formatPrice(price, currency) {
@@ -26,13 +27,11 @@
   {#each data.results as item}
     <a
       href={"/" +
-        item.address.country.replace(/\s+/g, "-").toLowerCase() +
+        _.kebabCase(_.get(item, "address.country", "country")) +
         "/" +
-        item.address.city.replace(/\s+/g, "-").toLowerCase() +
+        _.kebabCase(_.get(item, "address.city", "city")) +
         "/" +
-        (item.title
-          ? item.title.replace(/\s+/g, "-").toLowerCase()
-          : "property") +
+        _.kebabCase(_.get(item, "title", "property")) +
         "/" +
         item._id +
         search}

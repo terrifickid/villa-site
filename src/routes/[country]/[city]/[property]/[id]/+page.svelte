@@ -1,7 +1,7 @@
 <script>
   export let data;
   let more = true;
-
+  import _ from "lodash";
   import Booker from "$components/Booker.svelte";
 
   console.log(data);
@@ -121,7 +121,7 @@
   </div>
 </section>
 
-{#if data.publicDescription.summary}
+{#if _.get(data, "publicDescription.summary")}
   <section class="frame bg-white text-black text-xl py-12">
     <div>
       <div class="grid grid-cols-1 gap-0 lg:grid-cols-3 md:gap-12">

@@ -19,7 +19,7 @@
   };
 
   onMount(async () => {
-    stripe = await loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+    stripe = await loadStripe("pk_live_ifI6zGqmmINgBCUQmIKeZqIT");
     elements = stripe.elements();
     cardElement = elements.create("card");
     cardElement.on("change", function (event) {});
@@ -43,8 +43,16 @@
           guest,
         }
       );
+      if (_.has(response, "data._id")) {
+        window.location.href = "/reservation/" + _.get(response, "data._id");
+      } else {
+        alert("Reservation can not be confirmed. Please contact support.");
+        loading = false;
+      }
       console.log(response.data);
     } catch (error) {
+      alert("Reservation can not be confirmed. Please contact support.");
+      loading = false;
       console.error(error);
     }
   }
@@ -66,10 +74,10 @@
         var quoteId = _.get(reservation, "_id");
         var ratePlanId = _.get(reservation, "rates.ratePlans[0].ratePlan._id");
         const booking = await createBooking(
-          ccToken,
           quoteId,
+          ccToken,
           ratePlanId,
-          quote
+          guest
         );
       } else {
         loading = false;
