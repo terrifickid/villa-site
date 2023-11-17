@@ -31,7 +31,7 @@
         "/" +
         _.kebabCase(_.get(item, "address.city", "city")) +
         "/" +
-        _.kebabCase(_.get(item, "title", "property")) +
+        (_.get(item, "title") ? _.kebabCase(item.title) : "property") +
         "/" +
         item._id +
         search}
