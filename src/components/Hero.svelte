@@ -44,7 +44,8 @@
 
 <KeywordSearch />
 <section
-  class="bg-black overflow-hidden text-white py-24 bg-cover bg-center shadow-md"
+  class="bg-black overflow-hidden text-white py-24 bg-cover bg-center shadow-md bg-center bg-cover"
+  style="background-image: url(https://www.villabound.com/wp-content/themes/caribound/assets/7flntut11.jpg)"
 >
   <form on:submit={handleSubmit}>
     <div>
@@ -52,9 +53,12 @@
         <div
           class="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-12 flex items-center"
         >
-          <div class="text-left">
+          <div
+            class="text-left p-7 mt-24 rounded-lg"
+            style="background: rgba(0,0,0,0.65);"
+          >
             <div>
-              <p class="v_heading mt-24">Find a place to stay.</p>
+              <p class="v_heading mt-3">Find a place to stay.</p>
             </div>
             <div class="grid grid-cols-2 gap-4 mt-10">
               <div>
@@ -192,12 +196,6 @@
                 </button>
               </div>
             </div>
-          </div>
-
-          <div class="w-full mx-auto max-w-7xl">
-            <img
-              src="https://www.villabound.com/wp-content/themes/caribound/assets/7flntut11.jpg"
-            />
           </div>
         </div>
       </div>
