@@ -7,7 +7,7 @@ export async function load({ url }) {
   const apiUrl = "https://vapi-le6wug7tlq-vp.a.run.app/search";
   try {
     const response = await axios.post(apiUrl, {
-      query: "listings?country=" + destination + "&limit=100",
+      query: "listings?country=" + destination + "&tags=iCal&limit=100",
     });
     response.data.destination = destination;
     return response.data;
