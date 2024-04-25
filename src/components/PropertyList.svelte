@@ -17,7 +17,7 @@
     return p;
   }
   onMount(() => {
-    search = window.location.search;
+    search = _.get(window, "location.search", "");
   });
 </script>
 
