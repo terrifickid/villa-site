@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import _ from "lodash";
   export let data;
-  let search = null;
+  let search = "";
   function formatPrice(price, currency) {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
