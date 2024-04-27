@@ -5,7 +5,7 @@ export async function load({ url }) {
   const apiUrl = "https://vapi-le6wug7tlq-vp.a.run.app/search";
   try {
     const response = await axios.post(apiUrl, {
-      query: searchString,
+      query: searchString + "&limit=100",
     });
     return response.data;
   } catch (error) {
