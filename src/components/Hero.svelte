@@ -30,7 +30,7 @@
     event.preventDefault();
     searching = true; // Toggle the variable
     let queryParams = new URLSearchParams(search).toString();
-    let searchUrl = `/search/listings${queryParams}`;
+    let searchUrl = `/search?${queryParams}`;
     goto(searchUrl, false);
   }
 

@@ -5,9 +5,9 @@ let cities = {
 export async function load({ page }) {
   const apiUrl = "https://vapi-le6wug7tlq-vp.a.run.app/search";
   const queries = [
-    "listings/cities?skip=0&limit=100",
-    "listings/cities?skip=100&limit=100",
-    "listings/cities?skip=200&limit=100",
+    "/cities?skip=0&limit=100",
+    "/cities?skip=100&limit=100",
+    "/cities?skip=200&limit=100",
   ];
 
   try {
