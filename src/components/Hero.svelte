@@ -9,6 +9,7 @@
     checkIn: getNextFriday(),
     checkOut: getNextMondayAfterFriday(),
   };
+
   function getNextFriday() {
     const today = new Date();
     const daysUntilFriday = (5 - today.getDay() + 7) % 7; // Calculate days until the next Friday
