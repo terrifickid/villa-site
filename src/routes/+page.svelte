@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { PUBLIC_BARBADOS_MODE } from "$env/static/public";
   import Hero from "../components/Hero.svelte";
   import About from "../components/About.svelte";
   import Destinations from "../components/Destinations.svelte";
@@ -8,6 +8,7 @@
 
 <Hero {data} />
 
-<Destinations {data} />
-
+{#if PUBLIC_BARBADOS_MODE !== "true"}
+  <Destinations {data} />
+{/if}
 <About />
