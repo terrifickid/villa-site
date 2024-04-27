@@ -1,11 +1,11 @@
 import axios from "axios";
 export async function load({ url }) {
-  var searchString = url.search;
+  var searchString = url.search + "&limit=100";
   console.log("Searching...", searchString);
   const apiUrl = "https://vapi-le6wug7tlq-vp.a.run.app/search";
   try {
     const response = await axios.post(apiUrl, {
-      query: searchString + "&limit=100",
+      query: searchString,
     });
     return response.data;
   } catch (error) {
