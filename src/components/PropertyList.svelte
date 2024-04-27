@@ -16,6 +16,10 @@
     if (item?.picture?.large) p = item?.picture?.large;
     return p;
   }
+  function urlEncode(str, defaultValue = "x") {
+    const encodedStr = encodeURIComponent(str);
+    return _.isEmpty(str) ? defaultValue : _.escape(encodedStr);
+  }
   onMount(() => {
     search = _.get(window, "location.search", "");
   });
@@ -27,11 +31,14 @@
   {#each data.results as item}
     <a
       href={"/" +
-        _.kebabCase(_.get(item, "address.country", "country")) +
+        urlEncode(
+          _.kebabCase(_.get(item, "address.country", "country")),
+          "country"
+        ) +
         "/" +
-        _.kebabCase(_.get(item, "address.city", "city")) +
+        urlEncode(_.kebabCase(_.get(item, "address.city", "city")), "city") +
         "/" +
-        (_.get(item, "title") ? _.kebabCase(item.title) : "property") +
+        urlEncode(_.kebabCase(_.get(item, "title", "property")), "property") +
         "/" +
         item._id +
         search}
