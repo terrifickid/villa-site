@@ -1,8 +1,10 @@
 import axios from "axios";
+import { PUBLIC_API_SERVER } from "$env/static/public";
 let cities = {
   results: [],
 };
 export async function load({ page }) {
+  console.log("Loading...", PUBLIC_API_SERVER);
   const apiUrl = "https://vapi-le6wug7tlq-vp.a.run.app/search";
   const queries = [
     "/cities?skip=0&limit=100",
