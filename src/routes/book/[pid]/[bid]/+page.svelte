@@ -31,7 +31,7 @@
           />
         </svg>
       </button>
-      <div class="pl-3">Confirm & Pay</div>
+      <div class="pl-3">Request to Book</div>
     </h1>
     <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-24">
       <ConfirmAndPay {reservation} />

@@ -81,7 +81,7 @@
       type="submit"
       class="text-base w-auto cursor-pointer items-center justify-center lg:px-12 px-12 py-4 text-center duration-200 bg-black text-white rounded-full focus:outline-none hover:bg-black ring-white hover:ring-bound ring-1 hover:text-white hover:bg-black"
     >
-      Reserve
+      Request to Book
     </button>
   </div>
 </div>
@@ -168,7 +168,7 @@
         {#if isChecking}
           <Spinner />
         {:else}
-          Reserve
+          Request to Book
         {/if}
       </button>
     </div>

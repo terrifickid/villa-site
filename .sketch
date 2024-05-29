@@ -1,0 +1,4 @@
+ <p class="text-xl font-medium">Credit Card (Optional)</p>
+    <div class="rounded-md bg-gray-100 p-3 my-4">
+      <div id="card-element" />
+    </div>

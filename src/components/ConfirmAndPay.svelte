@@ -61,7 +61,7 @@
     event.preventDefault();
     try {
       loading = true;
-      console.log("crate token");
+      //alert("crate token");
       var r = await stripe.createPaymentMethod({
         type: "card",
         card: cardElement,
@@ -80,10 +80,11 @@
           guest
         );
       } else {
+        alert("no paymentMethod!");
         loading = false;
       }
     } catch (err) {
-      console.log("error!");
+      alert("error!");
       console.log(err);
       loading = false;
     }
@@ -137,7 +138,7 @@
   </div>
   <hr class="mb-8" />
   <div>
-    <p class="text-xl font-medium">Pay with Credit Card</p>
+    <p class="text-xl font-medium">Credit Card (Optional)</p>
     <div class="rounded-md bg-gray-100 p-3 my-4">
       <div id="card-element" />
     </div>
