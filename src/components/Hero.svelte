@@ -47,7 +47,7 @@
 <KeywordSearch />
 <section
   class="bg-black overflow-hidden text-white py-24 bg-cover bg-center shadow-md bg-center bg-cover"
-  style="background-image: url(https://blog.villabound.com/wp-content/themes/caribound/assets/7flntut11.jpg)"
+  style="background-image: url(/7flntut11.jpg)"
 >
   <form on:submit={handleSubmit}>
     <div>
