@@ -1,5 +1,9 @@
 import adapter from "@sveltejs/adapter-auto";
 import { vitePreprocess } from "@sveltejs/kit/vite";
+import dotenvJSON from 'dotenv-json';
+
+// Load env.json
+dotenvJSON(); // Loads ./env.json by default, or specify { path: './path/to/env.json' }
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {

@@ -1,2 +1,3 @@
 
 echo "$VILLABOUND_DEV" > .env.json
+npm run dev
