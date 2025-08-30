@@ -1,8 +1,6 @@
 import axios from "axios";
 import { PUBLIC_API_SERVER } from "$env/static/public";
-let cities = {
-  results: [],
-};
+
 export async function load({ page }) {
   console.log("Loading...", PUBLIC_API_SERVER);
   const apiUrl = PUBLIC_API_SERVER + "/api";
@@ -14,28 +12,18 @@ export async function load({ page }) {
 
   try {
     const responsePromises = queries.map((query) =>
-      axios.post(apiUrl, {
-        query,
-      })
+      axios.post(apiUrl, { query })
     );
     const responses = await Promise.all(responsePromises);
 
     const combinedData = responses.map((response) => response.data.results);
-    const allCities = Object.values(combinedData).reduce(
-      (acc, data) => [...acc, ...data],
-      []
-    );
-    const uniqueCountries = allCities.reduce((acc, cityObj) => {
-      if (!acc.includes(cityObj.country)) {
-        acc.push(cityObj.country);
-      }
-      return acc;
-    }, []);
-    var sorted = uniqueCountries.sort();
+    const allCities = combinedData.flat(); // Simplify using flat()
+    const uniqueCountries = [...new Set(allCities.map((cityObj) => cityObj.country))]; // Use Set for unique values
+    const sorted = uniqueCountries.sort();
 
     return { countries: sorted };
   } catch (error) {
-    console.error(error);
-    return cities; // You need to define 'cities' or handle the error case appropriately
+    console.error("Load error:", error.message, error.response?.data);
+    return { countries: [] }; // Always return countries array
   }
 }

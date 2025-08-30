@@ -1,5 +1,14 @@
 <script>
-  export let data;
+  export let data = {
+    pictures: [],
+    picture: {},
+    publicDescription: {},
+    amenities: [],
+    nickname: "Unknown Property",
+    accommodates: 0,
+    bedrooms: 0,
+    bathrooms: 0,
+  };
   let more = true;
   import _ from "lodash";
   import Booker from "$components/Booker.svelte";
@@ -14,29 +23,32 @@
   }
 
   function getMainImage() {
-    var p = "/p.svg";
-    if (!data?.pictures.length) return p;
-    if (data?.pictures[0]?.original) p = data?.pictures[0]?.original;
-    if (data?.picture?.large) p = data?.picture?.large;
-    return p;
+    const defaultImage = "/p.svg";
+    const pictures = _.get(data, "pictures", []);
+    if (_.get(pictures, "length", 0) > 0 && _.get(pictures, "[0].original")) {
+      return _.get(pictures, "[0].original");
+    }
+    if (_.get(data, "picture.large")) {
+      return _.get(data, "picture.large");
+    }
+    return defaultImage;
   }
 </script>
 
-<section class=" center pt-32 md:pt-40 pb-6">
+<section class="center pt-32 md:pt-40 pb-6">
   <div class="">
     <div class="items-center w-full frame">
-      <div class=" grid grid-cols-1 flex items-center">
+      <div class="grid grid-cols-1 flex items-center">
         <div>
           <p class="v_heading">
-            {data.nickname}
+            {_.get(data, "nickname", "Unknown Property")}
           </p>
         </div>
-        <div class=" justify-end hidden">
+        <div class="justify-end hidden">
           <button
             type="button"
             class="p-5 flex items-center text-lg md:p-6 md:px-8 md:text-2xl text-center text-white duration-200 bg-black font-medium rounded-full text-base focus:outline-none hover:bg-white ring-1 ring-white hover:ring-bound hover:text-black"
-            ><div style="position:relative" />
-
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -67,21 +79,17 @@
 <p class="mb-1" />
 
 <section class="bg-white text-black frame">
-  <div class=" md:text-2xl lg:text-3xl">
+  <div class="md:text-2xl lg:text-3xl">
     <div class="grid grid-cols-3 lg:grid-cols-3 gap-4">
       <div class="mb-4">
-        <p>Guests<br />{data.accommodates}</p>
+        <p>Guests<br />{_.get(data, "accommodates", 0)}</p>
       </div>
-
       <div>
-        <p>Beds<br />{data.bedrooms}</p>
+        <p>Beds<br />{_.get(data, "bedrooms", 0)}</p>
       </div>
-
       <div>
-        <p>Baths<br />{data.bathrooms}</p>
+        <p>Baths<br />{_.get(data, "bathrooms", 0)}</p>
       </div>
-
-      <!-- Continue displaying other properties -->
     </div>
   </div>
 </section>
@@ -89,9 +97,8 @@
 <div class="frame hidden">
   <button
     type="button"
-    class=" p-5 flex items-center text-lg md:p-6 md:px-8 md:text-2xl text-center text-white duration-200 bg-black font-medium rounded-full text-base focus:outline-none hover:bg-white ring-1 ring-white hover:ring-bound hover:text-black"
-    ><div style="position:relative" />
-
+    class="p-5 flex items-center text-lg md:p-6 md:px-8 md:text-2xl text-center text-white duration-200 bg-black font-medium rounded-full text-base focus:outline-none hover:bg-white ring-1 ring-white hover:ring-bound hover:text-black"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -117,7 +124,7 @@
 
 <section class="frame my-6">
   <div>
-    <img class="w-full rounded" src={getMainImage()} />
+    <img class="w-full rounded" src={getMainImage()} alt="Main image" />
   </div>
 </section>
 
@@ -127,27 +134,37 @@
       <div class="grid grid-cols-1 gap-0 lg:grid-cols-3 md:gap-12">
         <div class="lg:col-span-2">
           <p class="mb-2 font-medium">Description</p>
-          <p class:line-clamp-6={more}>{data.publicDescription.summary}</p>
-          <button on:click={() => (more = !more)} class="pt-2 text-md underline"
-            >Show More</button
+          <p class:line-clamp-6={more}>
+            {_.get(data, "publicDescription.summary", "")}
+          </p>
+          <button
+            on:click={() => (more = !more)}
+            class="pt-2 text-md underline"
           >
+            Show More
+          </button>
           <hr class="my-12" />
-          {#if data.amenities.length}
-            <ul class=" list-none grid md:grid-cols-2 gap-8 mb-24">
-              {#each data.amenities as amenity}
+          {#if _.get(data, "amenities", []).length > 0}
+            <ul class="list-none grid md:grid-cols-2 gap-8 mb-24">
+              {#each _.get(data, "amenities", []) as amenity}
                 <li>{amenity}</li>
               {/each}
             </ul>
           {/if}
-
-          <section class="grid md:grid-cols-1 gap-4 md:gap-6">
-            {#each data.pictures as picture}
-              <div
-                class="picture bg-cover bg-center aspect-square rounded"
-                style="width: 100%; background-image: url({picture.original})"
-              />
-            {/each}
-          </section>
+          {#if _.get(data, "pictures", []).length > 0}
+            <section class="grid md:grid-cols-1 gap-4 md:gap-6">
+              {#each _.get(data, "pictures", []) as picture}
+                <div
+                  class="picture bg-cover bg-center aspect-square rounded"
+                  style="width: 100%; background-image: url({_.get(
+                    picture,
+                    'original',
+                    '/p.svg',
+                  )})"
+                />
+              {/each}
+            </section>
+          {/if}
         </div>
         <Booker {data} />
       </div>

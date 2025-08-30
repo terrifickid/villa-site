@@ -93,10 +93,12 @@
                 >
                   {#if PUBLIC_BARBADOS_MODE === "true"}
                     <option value="Barbados">Barbados</option>
-                  {:else}
+                  {:else if data.countries && Array.isArray(data.countries)}
                     {#each data.countries as country}
                       <option value={country}>{country}</option>
                     {/each}
+                  {:else}
+                    <option value="">No countries available</option>
                   {/if}
                 </select>
               </div>
