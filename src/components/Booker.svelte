@@ -1,5 +1,6 @@
 <script>
   export let data;
+  import { PUBLIC_API_SERVER } from "$env/static/public";
   import { onMount } from "svelte";
   import axios from "axios";
   import { goto } from "$app/navigation";
@@ -33,7 +34,8 @@
   }
   async function checkAvailability() {
     isChecking = true;
-    const apiUrl = "https://vapi-le6wug7tlq-vp.a.run.app/quote";
+
+    const apiUrl = PUBLIC_API_SERVER + "/quote";
     try {
       const response = await axios.post(apiUrl, {
         guestsCount: guests,

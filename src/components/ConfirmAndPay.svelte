@@ -2,6 +2,7 @@
   export let reservation;
   import _ from "lodash";
   import axios from "axios";
+  import { PUBLIC_API_SERVER } from "$env/static/public";
 
   import Spinner from "$components/Spinner.svelte";
   import { loadStripe } from "@stripe/stripe-js";
@@ -31,18 +32,16 @@
       quoteId,
       ccToken,
       ratePlanId,
-      guest
+      guest,
     );
+
     try {
-      const response = await axios.post(
-        "https://vapi-le6wug7tlq-vp.a.run.app/book",
-        {
-          quoteId,
-          ccToken,
-          ratePlanId,
-          guest,
-        }
-      );
+      const response = await axios.post(PUBLIC_API_SERVER + "/book", {
+        quoteId,
+        ccToken,
+        ratePlanId,
+        guest,
+      });
       if (_.has(response, "data._id")) {
         window.location.href = "/reservation/" + _.get(response, "data._id");
       } else {
@@ -77,7 +76,7 @@
           quoteId,
           ccToken,
           ratePlanId,
-          guest
+          guest,
         );
       } else {
         loading = false;
